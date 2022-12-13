@@ -1,7 +1,7 @@
-# Input - array of numbers
-# Output - largest number in the array
-# Constraints - none
-# Edge cases - negative numbers, empty inputs
+# input - array of numbers
+# output - largest number in the array
+# constraints - none
+# edge cases - negative numbers, empty inputs
 
 import math
 
