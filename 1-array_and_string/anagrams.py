@@ -1,3 +1,9 @@
+# more optimal way to solve if interviewers allows
+# from collections import Counter
+
+# def anagrams(s1, s2):
+#   return Counter(s1) == Counter(s2)
+
 def anagrams(s1, s2):
   return char_count(s1) == char_count(s2)
 
@@ -12,6 +18,7 @@ def char_count(s):
 
   return hash_map
 
+# first try - not good solution
 # def anagrams(s1, s2):
 #   hash_map1 = {}
 #   hash_map2 = {}
