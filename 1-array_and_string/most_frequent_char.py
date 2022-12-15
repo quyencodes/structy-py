@@ -15,10 +15,6 @@ def most_frequent_char(s):
   return highest_freq
 
 
-
-
-
-
 # from math import inf
 
 # def most_frequent_char(s):
