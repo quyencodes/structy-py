@@ -8,6 +8,8 @@ def five_sort(nums):
     else:
       if nums[i] is 5:
         # do the swapping
+        # nums[i], nums[j] = nums[j], nums[i]
+
         five = nums[i]
         not_five = nums[j]
 
