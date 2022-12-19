@@ -11,6 +11,7 @@ def reverse_list(head):
   while current is not None:
     # save next node
     next = current.next
+    # reverse in place
     current.next = prev
     prev = current
     current = next
