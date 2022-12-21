@@ -15,3 +15,17 @@ def reverse_list(head):
   # change head's next to None
   head.next = None
   return next_node
+
+def reverse_list(head):
+  prev = None
+  current = head
+
+  while current is not None:
+    next = current.next
+    # logic here
+    current.next = prev
+
+    prev = current
+    current = next
+
+  return prev
