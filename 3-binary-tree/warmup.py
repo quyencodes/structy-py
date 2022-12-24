@@ -17,9 +17,9 @@ b.left = d
 b.right = e
 c.right = f
 
-#      A
+#      a
 #     / \
-#    B   C
+#    b   c
 #   / \   \
-#  D   E   F
+#  d   e   f
 #
