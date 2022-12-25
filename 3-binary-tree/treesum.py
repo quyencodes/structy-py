@@ -23,3 +23,4 @@ def tree_sum(root):
       queue.append(current.right)
 
   return total_sum
+
