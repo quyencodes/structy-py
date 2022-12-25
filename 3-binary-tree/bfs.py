@@ -9,7 +9,7 @@ def breadth_first_values(root):
   values = []
 
   while queue:
-    current = deque.popleft()
+    current = queue.popleft()
     values.append(current.val)
 
     if current.left:
