@@ -1,2 +1,2 @@
-def largest_connected_paths():
+def largest_component():
   pass
