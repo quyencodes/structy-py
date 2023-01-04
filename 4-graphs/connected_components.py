@@ -1,5 +1,5 @@
 def connected_components_count(graph):
-  visited = set()
+  visited = set() # 8, 1, 5
   count = 0
 
   def connectedhelper(graph, current, visited):
