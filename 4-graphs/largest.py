@@ -1,22 +1,49 @@
-def largest_component(graph):
-  visited = set()
-  max_streak = 0
+from collections import deque
+def shortest_path(edges, node_A, node_B):
+  graph = create_graph(edges)
+  visited = set([node_A])
 
-  def explore_size(graph, current, visited):
-    if current in visited:
-      return 0
+  queue = deque( [ (node_A, 0) ])
+  while queue:
+    current, distance = queue.popleft()
 
-    visited.add(current)
-    size = 1
+    if current == node_B:
+      return distance
 
     for neighbor in graph[current]:
-      size += explore_size(graph, neighbor, visited)
+      if neighbor not in visited:
+        visited.add(current)
+        queue.append((neighbor, distance + 1))
 
-    return size
+  return -1
 
-  for node in graph:
-    size = explore_size(graph, node, visited)
-    if max_streak < size:
-      max_streak = size
+def create_graph(edges):
+  graph = {}
 
-  return max_streak
+  for edge in edges:
+    a, b = edge
+    if a not in graph:
+      graph[a] = []
+    if b not in graph:
+      graph[b] = []
+
+    graph[a].append(b)
+    graph[b].append(a)
+
+  return graph
+
+# edges = [
+#   ['w', 'x'],
+#   ['x', 'y'],
+#   ['z', 'y'],
+#   ['z', 'v'],
+#   ['w', 'v']
+# ]
+
+# graph = {
+#   'v': ['w', 'v'],
+#   'w': ['x', 'v'],
+#   'x': ['w', 'y'],
+#   'y': ['x', 'z'],
+#   'z': ['y', 'v'],
+# }
