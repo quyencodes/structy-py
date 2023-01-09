@@ -32,3 +32,12 @@ def count_char(s):
     hash_map[letter] += 1
 
   return hash_map
+
+# solution from structy
+def most_frequent_char(s):
+  count = count_char(s)
+  best = None
+  for letter in count:
+    if best is None or count[letter] > count[best]:
+      best = letter
+  return best
