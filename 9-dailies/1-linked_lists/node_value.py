@@ -19,4 +19,4 @@ def get_node_value(head, index):
     index -= 1
     current = current.next
 
-  reeturn None
+  return None
