@@ -37,7 +37,7 @@ def has_path(graph, src, dst):
   return False
 
 # recursive case
-def has_path(graph, src, dst, visited):
+def has_path(graph, src, dst, visited=set()):
   if src == dst:
     return True
 
@@ -46,7 +46,7 @@ def has_path(graph, src, dst, visited):
   visited.add(src)
 
   for neighbor in graph[src]:
-    if has_path(graph, neighbor, dst, set()) == True:
+    if has_path(graph, neighbor, dst, visited) == True:
       return True
 
   return False
