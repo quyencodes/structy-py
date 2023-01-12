@@ -1,21 +1,22 @@
 def zipper_lists(head_1, head_2):
   tail = head_1
-  current_h1 = head_1.next
-  current_h2 = head_2
+  current_1 = head_1.next
+  current_2 = head_2
   count = 0
-  while current_h1 and current_h2 is not None:
+  while current_1 is not None and current_2 is not None:
     if count % 2 == 0:
-      tail.next = current_h2
-      current_h2 = current_h2.next
+      tail.next = current_2
+      current_2 = current_2.next
     if count % 2 == 1:
-      tail.next = current_h1
-      current_h1 = current_h1.next
+      tail.next = current_1
+      current_1 = current_1.next
+    tail = tail.next
     count += 1
 
-  if current_h1 is None:
-    tail.next = current_h2
-  if current_h2 is None:
-    tail.next = current_h1
+  if current_1 is None:
+    tail.next = current_2
+  if current_2 is None:
+    tail.next = current_1
 
   return head_1
 
