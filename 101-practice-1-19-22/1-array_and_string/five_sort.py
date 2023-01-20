@@ -14,3 +14,5 @@ def five_sort(nums):
 
 #.       i  j
 # [4, 1, 1, 1, 5, 5, 5]
+
+# practice longest palindrome
