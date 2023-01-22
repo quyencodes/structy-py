@@ -12,7 +12,4 @@ def five_sort(nums):
         i += 1
   return nums
 
-#.       i  j
-# [4, 1, 1, 1, 5, 5, 5]
-
 # practice longest palindrome
