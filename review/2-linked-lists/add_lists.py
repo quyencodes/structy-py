@@ -1,3 +1,9 @@
+class Node:
+  def __init__(self, value):
+    self.value = value
+    self.next = None
+
+
 def add_lists(head_1, head_2, carry=0):
   if head_1 is None and head_2 is None and carry == 0:
     return None
