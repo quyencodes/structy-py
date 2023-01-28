@@ -8,7 +8,7 @@ def explore(graph, current, dst, visited):
     return True
 
   if current in visited:
-    return
+    return False
 
   visited.add(current)
 
