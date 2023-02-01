@@ -1,13 +1,16 @@
 def has_cycle(graph):
+  # white-grey-black algorithm
+  # white = unvisited nodes, grey = visiting nodes, black = fully visited
   visiting = set()
   visited = set()
   for node in graph:
-    if cycle_detect(graph, node, visiting, visited) == True:
+    if detect_cycles(graph, node, visiting, visited):
       return True
+    visiting = set()
 
   return False
 
-def cycle_detect(graph, current, visiting, visited):
+def detect_cycles(graph, current, visiting, visited):
   if current in visited:
     return False
 
@@ -16,10 +19,15 @@ def cycle_detect(graph, current, visiting, visited):
   visiting.add(current)
 
   for neighbor in graph[current]:
-    if cycle_detect(graph, neighbor, visiting, visited):
+    if detect_cycles(graph, neighbor, visiting, visited):
       return True
 
-  visiting.remove(current)
+  # switch move from visiting to visited
+  # visiting.remove(current)
   visited.add(current)
-
   return False
+
+# visiting =
+# visited = a, b, c, d
+
+# a -> b -> c -> d
