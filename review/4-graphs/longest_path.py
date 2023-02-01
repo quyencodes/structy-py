@@ -27,11 +27,3 @@ def explore_nodes(graph, current, distances):
   distances[current] = 1 + largest
   return distances[current]
 
-example = {
-  'a': ['c', 'b'],
-  'b': ['c'],
-  'c': []
-}
-
-print(longest_path(example))
-
