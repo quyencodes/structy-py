@@ -1,19 +1,19 @@
 def befitting_brackets(string):
   stack = []
-  for s in string:
-    if len(stack) > 0 and s == ')' and stack[-1] == '(':
-      stack.pop()
-    elif len(stack) > 0 and s == '}' and stack[-1] == '{':
-      stack.pop()
-    elif len(stack) > 0 and s == ']' and stack[-1] == '[':
-      stack.pop()
+  brackets = {
+    '[': ']',
+    '(': ')',
+    '{': '}'
+  }
+
+  for char in string:
+    if char in brackets:
+      stack.append(brackets[char])
     else:
-      stack.append(s)
+      if stack and stack[-1] == char:
+        stack.pop()
+      else:
+        return False
 
-  if len(stack) == 0:
-    return True
-  else:
-    return False
-
-print(befitting_brackets('(){}[](())')) # -> True
+  return len(stack) == 0
 
