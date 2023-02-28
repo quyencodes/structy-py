@@ -52,3 +52,15 @@ topological_order({
   "e": [],
   "f": ["b", "e"],
 })
+
+g = lambda x: x[0]
+print(g([3, 1, 2]))
+
+full_name = lambda fn, ln: fn.strip().title() + " " + ln.strip().title()
+print(full_name('   quyen', 'hoang'))
+
+scifi_authors = ['Issac Ashimov', 'Ray Bradbury']
+print(scifi_authors.split(' '))
+
+values = sorted(scifi_authors, key=lambda names: names.split(' ')[-1].lower())
+print(values)
