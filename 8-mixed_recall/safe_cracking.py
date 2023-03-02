@@ -36,9 +36,3 @@ def build_graph(edges):
       graph[b] = []
     graph[a].append(b)
   return graph
-
-print(safe_cracking([
-  (7, 1),
-  (1, 8),
-  (7, 8),
-])) # -> '718'
