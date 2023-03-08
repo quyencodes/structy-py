@@ -1,3 +1,6 @@
+# time - o(n)
+# space - o(n)
+
 def linked_list_values(head):
   values = []
   current = head
