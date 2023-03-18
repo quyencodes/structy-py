@@ -26,6 +26,7 @@ def _all_tree_paths(root):
   for path in left_path:
     path.append(root.val)
     paths.append(path)
+    # paths.append([root.val, *left_path])
 
   for path in right_path:
     path.append(root.val)
