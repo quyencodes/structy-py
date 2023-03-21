@@ -1,3 +1,6 @@
+# time o(e), where e is the number of edges
+# space - o(n), where n is the number of nodes
+
 def has_path(graph, src, dst):
   if src == dst:
     return True
