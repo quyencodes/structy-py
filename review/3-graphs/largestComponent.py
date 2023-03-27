@@ -29,3 +29,5 @@ def explore_components(graph, current, visited):
   count = 1
   for neighbor in graph[current]:
     count += explore_components(graph, neighbor, visited)
+
+  return count
