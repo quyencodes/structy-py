@@ -5,6 +5,8 @@ depth first search
 2) iteratively go through each node
 3) return max(map.values())
 
+time - o(n+e)
+space - o(n)
 """
 
 def longest_path(graph):
