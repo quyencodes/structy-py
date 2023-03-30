@@ -1,5 +1,5 @@
 """
-time - o(e), where e represents the edges
+time - o(e), where e represents the prereqs
 space - o(n), where n represents the nodes
 """
 
