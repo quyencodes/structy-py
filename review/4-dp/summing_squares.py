@@ -29,7 +29,7 @@ def summing_squares(n, memo={}):
   for i in range(1, math.floor(math.sqrt(n)) + 1, 1):
     square = i * i
     new_n = n - square
-    num_squares = 1 + summing_squares(new_n)
+    num_squares = 1 + summing_squares(new_n, memo)
     min_squares = min(min_squares, num_squares)
 
   memo[n] = min_squares
