@@ -33,3 +33,41 @@ def _can_concat(s, i, words, memo):
 
   memo[i] = False
   return False
+
+"""
+dp - ps technique where we:
+1. break down our problems into subproblems
+2. solve our subproblems
+3. reuse our solutions to solve other subproblems
+
+base case:
+s is empty: return True
+
+recursive case:
+1. iterate through words
+2. if theres a match
+
+"""
+
+def can_concat(s, words):
+  return _can_concat(s, words, {})
+
+def _can_concat(s, words, memo):
+  if s in memo:
+    return memo[s]
+
+  if s == '':
+    return True
+
+  for word in words:
+    if s.startswith(word):
+      suffix = s[len(word):]
+      if _can_concat(suffix, words, memo):
+        memo[s] = True
+        return True
+
+  memo[s] = False
+  return False
+
+
+
