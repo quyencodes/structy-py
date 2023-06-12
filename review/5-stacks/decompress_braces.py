@@ -13,7 +13,6 @@ qqtututuv
    3b. grab number, the words, multiply together
    3c. add back to the stack
 end. return ''.join(stack)
-
 """
 import collections
 def decompress_braces(string):
