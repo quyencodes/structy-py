@@ -1,27 +1,28 @@
-def linked_list_cycle(head):
-  visited = set()
-  return _linked_list_cycle(head, visited)
+def linked_list_cycle(head, unique=set()):
+  if head is None: return False
+  curr = head
 
-def _linked_list_cycle(head, visited):
-  if head is None:
-    return False
-
-  if head.val in visited:
-    return True
-
-  visited.add(head.val)
-  return _linked_list_cycle(head.next, visited)
-
-def linked_list_cycle(head):
-  slow = head
-  fast = head
-  start = True
-  while not (fast is None or fast.next is None):
-    if slow.val == fast.val and not start:
+  while curr is not None:
+    if curr.val in unique:
       return True
-
-    slow = slow.next
-    fast = fast.next.next
-    start = False
+    unique.add(curr.val)
+    curr = curr.next
 
   return False
+
+def linked_list_cycle(head):
+  if head is None: return False
+  slow = head
+  fast = head.next
+  while not (fast is None or fast.next is None):
+    if slow is fast:
+      return True
+    slow = slow.next
+    fast = fast.next.next
+  return False
+
+l1 = ['a', 'b']
+l2 = ['a', 'b']
+
+print(l1 == l2)
+print(l1 is l2)
