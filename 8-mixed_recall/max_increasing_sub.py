@@ -1,6 +1,5 @@
 def max_increasing_subseq(numbers):
-  memo = {}
-  return _max_increasing_subseq(numbers, 0, float('-inf'), memo)
+  return _max_increasing_subseq(numbers, 0, float('-inf'), {})
 
 def _max_increasing_subseq(numbers, i, prev, memo):
   key = (i, prev)
@@ -10,16 +9,15 @@ def _max_increasing_subseq(numbers, i, prev, memo):
   if i == len(numbers):
     return 0
 
-  current = numbers[i]
+  curr = numbers[i]
   options = []
-  dont_take_current = _max_increasing_subseq(numbers, i + 1, prev, memo)
-  options.append(dont_take_current)
 
-  if current > prev:
-    take_current = 1 + _max_increasing_subseq(numbers, i + 1, current, memo)
-    options.append(take_current)
+  without_first = _max_increasing_subseq(numbers, i + 1, prev, memo)
+  options.append(without_first)
+
+  if prev < curr:
+    with_first = 1 + _max_increasing_subseq(numbers, i + 1, curr, memo)
+    options.append(with_first)
 
   memo[key] = max(options)
   return max(options)
-
-
