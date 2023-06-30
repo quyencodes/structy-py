@@ -1,17 +1,12 @@
-# class Node:
-#   def __init__(self, val):
-#     self.val = val
-#     self.left = None
-#     self.right = None
+def binary_search(numbers, target):
+  l, r = 0, len(numbers) - 1
+  while l <= r:
+    midpoint = (l + r) // 2
+    if target == numbers[midpoint]:
+      return midpoint
+    elif target < numbers[midpoint]:
+      r = midpoint - 1
+    else:
+      l = midpoint + 1
 
-def binary_search_tree_includes(root, target):
-  if root is None:
-    return False
-
-  if root.val == target:
-    return True
-
-  if root.val > target:
-    return binary_search_tree_includes(root.left, target)
-  else:
-    return binary_search_tree_includes(root.right, target)
+  return -1
