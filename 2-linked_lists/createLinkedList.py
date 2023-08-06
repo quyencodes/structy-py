@@ -3,31 +3,32 @@ class Node:
     self.val = val
     self.next = None
 
+
 def create_linked_list(values):
   dummy_head = Node(None)
   tail = dummy_head
 
-  for element in values:
-    tail.next = Node(element)
+  for value in values:
+    tail.next = Node(value)
     tail = tail.next
 
   return dummy_head.next
 
-# recursive solution
+
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+
 def create_linked_list(values):
-  if len(values) == 0:
-    return None
+  return _create_linked_list(values, 0)
 
-  head = Node(values[0])
 
-  head.next = create_linked_list(values[1:])
-  return head
-
-# more optimal solution
-def create_linked_list(values, i = 0):
+def _create_linked_list(values, i):
   if i == len(values):
     return None
 
-  head = Node(values[i])
-  head.next = create_linked_list(values, i + 1)
-  return head
+  new_head = Node(values[i])
+  new_head.next = _create_linked_list(values, i + 1)
+  return new_head
