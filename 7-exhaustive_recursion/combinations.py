@@ -1,29 +1,34 @@
-def create_combinations(items, k):
-  # two base cases
-  if k == 0:
-    return [ [] ]
+"""
+['a', 'b'], 2
 
-  if len(items) < k:
+base cases:
+1. if k == 0: return [[]]
+2. if k > len(items): return []
+
+recursive case:
+1. make both inputs smaller
+2. make only items smaller
+
+"""
+
+
+def create_combinations(items, k):
+  if k == 0:
+    return [[]]
+
+  if k > len(items):
     return []
 
-  # two recursive calls
-  first = items[0]
-  combinations = create_combinations(items[1:], k-1)
+  ele = items[0]
+  combinations = create_combinations(items[1:], k - 1)  # [[]]
+  with_first = []
+  for comb in combinations:
+    with_first.append([ele] + comb)
 
-  # recursive code
-  main_combinations = []
-  for combo in combinations:
-    temp = [first, *combo]
-    main_combinations.append(temp)
+  without_first = create_combinations(items[1:], k)  # [['b']]
+  return with_first + without_first
 
-  sub_combinations = create_combinations(items[1:], k)
 
-  return main_combinations + sub_combinations
-
-# two base cases
-# if k == 0: return [ [] ]
-# if items.length < k: return []
-
-# recursive case - lower k and lower items
-
-# recursive case - keep k, lower items
+example1 = [['a', 'b']]
+example2 = ['c', 'd']
+print(example1 + example2)
