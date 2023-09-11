@@ -5,33 +5,30 @@
 #     self.right = None
 
 """
+Create a helper function that adds values of the tree in inorder traversal.
 
-is binary search tree:
-in order traversal (left, self, right)
-- make a list, add all left children, then self, then right children
-- process the list with two pointers, it should be in ascending order
-
+preorder (self, left, right)
+inorder (left, self, right)
+postorder (left, right, self)
 """
+
 
 def is_binary_search_tree(root):
   values = []
-  inorder_traversal(root, values)
-
-  for i in range(1, len(values) - 1):
+  traverse_tree(root, values)
+  for i in range(1, len(values)):
     j = i - 1
-    prev, curr = values[j], values[i]
-    if prev > curr:
+    if values[j] > values[i]:
       return False
 
   return True
 
-def inorder_traversal(root, values):
+
+def traverse_tree(root, values):
   if root is None:
     return
 
-  inorder_traversal(root.left, values)
+  traverse_tree(root.left, values)
   values.append(root.val)
-  inorder_traversal(root.right, values)
+  traverse_tree(root.right, values)
   return
-
-
